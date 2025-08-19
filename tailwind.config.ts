@@ -14,6 +14,28 @@ export default {
     },
     extend: {
       colors: {
+        cosmic: {
+          deep: "hsl(var(--cosmic-deep))",
+          void: "hsl(var(--cosmic-void))",
+          nebula: "hsl(var(--cosmic-nebula))",
+          star: "hsl(var(--cosmic-star))",
+          comet: "hsl(var(--cosmic-comet))",
+          meteor: "hsl(var(--cosmic-meteor))",
+          asteroid: "hsl(var(--cosmic-asteroid))",
+          plasma: "hsl(var(--cosmic-plasma))",
+        },
+        danger: {
+          DEFAULT: "hsl(var(--danger))",
+          foreground: "hsl(var(--danger-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -63,6 +85,18 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        'cosmic': '0 0 20px rgba(99, 102, 241, 0.3)',
+        'meteor': '0 0 30px rgba(239, 68, 68, 0.4)',
+        'comet': '0 0 25px rgba(34, 197, 94, 0.3)',
+        'glow': '0 0 15px currentColor',
+      },
+      animation: {
+        'twinkle': 'twinkle 3s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+        'drift': 'drift 20s linear infinite',
+      },
       keyframes: {
         "accordion-down": {
           from: {
@@ -80,10 +114,22 @@ export default {
             height: "0",
           },
         },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        'twinkle': {
+          '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.2)' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'pulse-glow': {
+          '0%': { boxShadow: '0 0 5px currentColor' },
+          '100%': { boxShadow: '0 0 20px currentColor, 0 0 30px currentColor' },
+        },
+        'drift': {
+          '0%': { transform: 'translateX(-100px)' },
+          '100%': { transform: 'translateX(calc(100vw + 100px))' },
+        },
       },
     },
   },
