@@ -1,9 +1,19 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './card';
-import { Badge } from './badge';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
-import { Satellite, Zap, Ruler, Clock, TrendingUp } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "./card";
+import { Badge } from "./badge";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+} from "recharts";
+import { Satellite, Zap, Ruler, Clock, TrendingUp } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface AsteroidDataPanelProps {
   className?: string;
@@ -11,35 +21,35 @@ interface AsteroidDataPanelProps {
 
 // Mock NASA data for Impactor-2025
 const trajectoryData = [
-  { date: '2024-01', distance: 45000000, velocity: 15.2, probability: 8.1 },
-  { date: '2024-02', distance: 38000000, velocity: 16.8, probability: 9.3 },
-  { date: '2024-03', distance: 32000000, velocity: 18.5, probability: 10.7 },
-  { date: '2024-04', distance: 26000000, velocity: 20.3, probability: 12.4 },
-  { date: '2024-05', distance: 21000000, velocity: 22.1, probability: 15.2 },
+  { date: "2024-01", distance: 45000000, velocity: 15.2, probability: 8.1 },
+  { date: "2024-02", distance: 38000000, velocity: 16.8, probability: 9.3 },
+  { date: "2024-03", distance: 32000000, velocity: 18.5, probability: 10.7 },
+  { date: "2024-04", distance: 26000000, velocity: 20.3, probability: 12.4 },
+  { date: "2024-05", distance: 21000000, velocity: 22.1, probability: 15.2 },
 ];
 
 const sizeData = [
-  { component: 'Core Mass', value: 89, unit: '%' },
-  { component: 'Rocky Material', value: 73, unit: '%' },
-  { component: 'Ice Content', value: 12, unit: '%' },
-  { component: 'Metal Density', value: 45, unit: '%' },
+  { component: "Core Mass", value: 89, unit: "%" },
+  { component: "Rocky Material", value: 73, unit: "%" },
+  { component: "Ice Content", value: 12, unit: "%" },
+  { component: "Metal Density", value: 45, unit: "%" },
 ];
 
 const asteroidInfo = {
-  designation: 'Impactor-2025',
-  diameter: '1.2 km',
-  mass: '2.8 × 10¹⁵ kg',
-  classification: 'Near-Earth Asteroid (NEA)',
-  discoveryDate: '2023-11-15',
-  impactProbability: '12.4%',
-  currentDistance: '26.1 million km',
-  velocity: '20.3 km/s',
-  estimatedImpact: '2025-04-13 14:23 UTC'
+  designation: "Impactor-2025",
+  diameter: "1.2 km",
+  mass: "2.8 × 10¹⁵ kg",
+  classification: "Near-Earth Asteroid (NEA)",
+  discoveryDate: "2023-11-15",
+  impactProbability: "12.4%",
+  currentDistance: "26.1 million km",
+  velocity: "20.3 km/s",
+  estimatedImpact: "2025-04-13 14:23 UTC",
 };
 
 export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
   return (
-    <div className={cn('space-y-6', className)}>
+    <div className={cn("space-y-6", className)}>
       {/* Header Info Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="bg-card/80 backdrop-blur-sm border-cosmic-nebula/20">
@@ -49,8 +59,12 @@ export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
                 <Satellite className="w-5 h-5 text-cosmic-nebula" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Current Distance</p>
-                <p className="text-xl font-bold text-cosmic-nebula">{asteroidInfo.currentDistance}</p>
+                <p className="text-sm text-muted-foreground">
+                  Current Distance
+                </p>
+                <p className="text-xl font-bold text-cosmic-nebula">
+                  {asteroidInfo.currentDistance}
+                </p>
               </div>
             </div>
           </CardContent>
@@ -64,7 +78,9 @@ export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Velocity</p>
-                <p className="text-xl font-bold text-cosmic-comet">{asteroidInfo.velocity}</p>
+                <p className="text-xl font-bold text-cosmic-comet">
+                  {asteroidInfo.velocity}
+                </p>
               </div>
             </div>
           </CardContent>
@@ -78,7 +94,9 @@ export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Diameter</p>
-                <p className="text-xl font-bold text-cosmic-asteroid">{asteroidInfo.diameter}</p>
+                <p className="text-xl font-bold text-cosmic-asteroid">
+                  {asteroidInfo.diameter}
+                </p>
               </div>
             </div>
           </CardContent>
@@ -91,8 +109,12 @@ export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
                 <TrendingUp className="w-5 h-5 text-danger" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Impact Probability</p>
-                <p className="text-xl font-bold text-danger">{asteroidInfo.impactProbability}</p>
+                <p className="text-sm text-muted-foreground">
+                  Impact Probability
+                </p>
+                <p className="text-xl font-bold text-danger">
+                  {asteroidInfo.impactProbability}
+                </p>
               </div>
             </div>
           </CardContent>
@@ -112,31 +134,31 @@ export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={trajectoryData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                <XAxis 
-                  dataKey="date" 
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke="rgba(255,255,255,0.1)"
+                />
+                <XAxis
+                  dataKey="date"
                   stroke="rgba(255,255,255,0.6)"
                   fontSize={12}
                 />
-                <YAxis 
-                  stroke="rgba(255,255,255,0.6)"
-                  fontSize={12}
-                />
-                <Tooltip 
+                <YAxis stroke="rgba(255,255,255,0.6)" fontSize={12} />
+                <Tooltip
                   contentStyle={{
-                    backgroundColor: 'rgba(30, 41, 59, 0.9)',
-                    border: '1px solid rgba(99, 102, 241, 0.3)',
-                    borderRadius: '8px',
-                    color: 'white'
+                    backgroundColor: "rgba(30, 41, 59, 0.9)",
+                    border: "1px solid rgba(99, 102, 241, 0.3)",
+                    borderRadius: "8px",
+                    color: "white",
                   }}
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="probability" 
-                  stroke="#EF4444" 
+                <Line
+                  type="monotone"
+                  dataKey="probability"
+                  stroke="#EF4444"
                   strokeWidth={3}
-                  dot={{ fill: '#EF4444', strokeWidth: 2, r: 4 }}
-                  activeDot={{ r: 6, fill: '#EF4444' }}
+                  dot={{ fill: "#EF4444", strokeWidth: 2, r: 4 }}
+                  activeDot={{ r: 6, fill: "#EF4444" }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -154,32 +176,31 @@ export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={sizeData} layout="horizontal">
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                <XAxis 
-                  type="number" 
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke="rgba(255,255,255,0.1)"
+                />
+                <XAxis
+                  type="number"
                   stroke="rgba(255,255,255,0.6)"
                   fontSize={12}
                 />
-                <YAxis 
-                  type="category" 
+                <YAxis
+                  type="category"
                   dataKey="component"
                   stroke="rgba(255,255,255,0.6)"
                   fontSize={12}
                   width={100}
                 />
-                <Tooltip 
+                <Tooltip
                   contentStyle={{
-                    backgroundColor: 'rgba(30, 41, 59, 0.9)',
-                    border: '1px solid rgba(99, 102, 241, 0.3)',
-                    borderRadius: '8px',
-                    color: 'white'
+                    backgroundColor: "rgba(30, 41, 59, 0.9)",
+                    border: "1px solid rgba(99, 102, 241, 0.3)",
+                    borderRadius: "8px",
+                    color: "white",
                   }}
                 />
-                <Bar 
-                  dataKey="value" 
-                  fill="#FBBF24" 
-                  radius={[0, 4, 4, 0]}
-                />
+                <Bar dataKey="value" fill="#FBBF24" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -199,29 +220,40 @@ export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
             <div className="space-y-4">
               <div className="flex justify-between items-center py-2 border-b border-border/30">
                 <span className="text-muted-foreground">Designation</span>
-                <Badge variant="outline" className="bg-cosmic-nebula/20 text-cosmic-nebula border-cosmic-nebula/30">
+                <Badge
+                  variant="outline"
+                  className="bg-cosmic-nebula/20 text-cosmic-nebula border-cosmic-nebula/30"
+                >
                   {asteroidInfo.designation}
                 </Badge>
               </div>
               <div className="flex justify-between items-center py-2 border-b border-border/30">
                 <span className="text-muted-foreground">Classification</span>
-                <span className="font-medium">{asteroidInfo.classification}</span>
+                <span className="font-medium">
+                  {asteroidInfo.classification}
+                </span>
               </div>
               <div className="flex justify-between items-center py-2 border-b border-border/30">
                 <span className="text-muted-foreground">Mass</span>
-                <span className="font-medium font-mono">{asteroidInfo.mass}</span>
+                <span className="font-medium font-mono">
+                  {asteroidInfo.mass}
+                </span>
               </div>
               <div className="flex justify-between items-center py-2 border-b border-border/30">
                 <span className="text-muted-foreground">Discovery Date</span>
-                <span className="font-medium">{asteroidInfo.discoveryDate}</span>
+                <span className="font-medium">
+                  {asteroidInfo.discoveryDate}
+                </span>
               </div>
             </div>
-            
+
             <div className="space-y-4">
               <div className="flex justify-between items-center py-2 border-b border-border/30">
                 <span className="text-muted-foreground">Estimated Impact</span>
                 <div className="text-right">
-                  <div className="font-medium text-danger">{asteroidInfo.estimatedImpact}</div>
+                  <div className="font-medium text-danger">
+                    {asteroidInfo.estimatedImpact}
+                  </div>
                   <div className="text-xs text-muted-foreground flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     T-168 hours
@@ -230,7 +262,10 @@ export function AsteroidDataPanel({ className }: AsteroidDataPanelProps) {
               </div>
               <div className="flex justify-between items-center py-2 border-b border-border/30">
                 <span className="text-muted-foreground">Data Source</span>
-                <Badge variant="outline" className="bg-cosmic-comet/20 text-cosmic-comet border-cosmic-comet/30">
+                <Badge
+                  variant="outline"
+                  className="bg-cosmic-comet/20 text-cosmic-comet border-cosmic-comet/30"
+                >
                   NASA JPL
                 </Badge>
               </div>

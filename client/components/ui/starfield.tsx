@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 interface Star {
   x: number;
@@ -13,7 +13,7 @@ interface StarfieldProps {
   starCount?: number;
 }
 
-export function Starfield({ className = '', starCount = 150 }: StarfieldProps) {
+export function Starfield({ className = "", starCount = 150 }: StarfieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starsRef = useRef<Star[]>([]);
   const animationRef = useRef<number>();
@@ -22,7 +22,7 @@ export function Starfield({ className = '', starCount = 150 }: StarfieldProps) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resizeCanvas = () => {
@@ -76,10 +76,10 @@ export function Starfield({ className = '', starCount = 150 }: StarfieldProps) {
       createStars();
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -90,7 +90,7 @@ export function Starfield({ className = '', starCount = 150 }: StarfieldProps) {
     <canvas
       ref={canvasRef}
       className={`fixed inset-0 pointer-events-none z-0 ${className}`}
-      style={{ background: 'transparent' }}
+      style={{ background: "transparent" }}
     />
   );
 }
